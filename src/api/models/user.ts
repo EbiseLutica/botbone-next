@@ -4,8 +4,9 @@ import { Visibility } from './visibility';
 
 export interface User extends DataObject {
   id: string;
-  createdAt: Date;
+  displayId: string;
   name: string;
+  createdAt?: Date;
   email?: string;
   profile: UserProfile;
   visibility?: Visibility;

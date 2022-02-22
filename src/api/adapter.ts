@@ -10,14 +10,14 @@ export default interface Adapter {
   disconnectAsync(): Promise<void>;
 
   createPostAsync(payload: PostInit): Promise<Post>;
-  deletePostAsync(post: Post | Post['id']): Promise<Post>;
+  deletePostAsync(post: Post | Post['id']): Promise<void>;
   repostAsync(post: Post | Post['id'], payload?: PostInit): Promise<Post>;
-  undoRepostAsync(post: Post | Post['id']): Promise<Post>;
-  likeAsync(post: Post | Post['id']): Promise<Post>;
-  undoLikeAsync(post: Post | Post['id']): Promise<Post>;
+  undoRepostAsync(post: Post | Post['id']): Promise<void>;
+  likeAsync(post: Post | Post['id']): Promise<void>;
+  undoLikeAsync(post: Post | Post['id']): Promise<void>;
 
   replyAsync(post: Post | Post['id'], payload: PostInit): Promise<Post>;
-  reactAsync(post: Post | Post['id'], emoji: string): Promise<Post>;
+  reactAsync(post: Post | Post['id'], emoji: string): Promise<void>;
   sendDirectAsync(user: User, init: PostInit): Promise<Post>;
 
   followAsync(user: User | User['id']): Promise<void>;

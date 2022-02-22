@@ -1,17 +1,13 @@
-import { readConfigAsync, writeConfigAsync } from './api/config';
+import { readFileSync } from 'fs';
+import MisskeyAdapter from './adapters/misskey';
+import { Core } from './core';
+import plugins from './plugins';
 
-writeConfigAsync('test', {
-  booleanTest: true,
-  numberTest: 300,
-  stringTest: 'Hello',
-  arrayTest: [
-    0, 1, 2, 'Meow', false,
-  ],
-  objectTest: {
-    name: 'John',
-    age: 30,
-    isVerified: true,
-  },
-}).then(() => {
-  readConfigAsync('test', {}).then(v => console.log(v));
+const {version} = JSON.parse(readFileSync('./package.json', 'utf-8'));
+console.log(`Citrine ver ${version}`);
+
+const core = new Core();
+
+core.startAsync(new MisskeyAdapter(core)).then(() => {
+  console.log('起動しました！');
 });

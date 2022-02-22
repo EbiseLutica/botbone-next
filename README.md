@@ -2,6 +2,8 @@
 
 TypeScript による `Xeltica/BotBone` および `Xeltica/Citrine` の再実装。
 
+Node.js v17.5.0が必要。
+
 ## システム アーキテクチャー
 
 本システムは、

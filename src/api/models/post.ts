@@ -5,6 +5,7 @@ import { Visibility } from './visibility';
 
 export interface Post extends DataObject {
   id: string;
+  createdAt?: Date;
   summary?: string;
   body?: string;
   attachments?: File[];

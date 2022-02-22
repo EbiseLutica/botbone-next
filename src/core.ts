@@ -2,7 +2,6 @@
  * Citrine Core System
  */
 
-import { EventEmitter } from 'eventemitter3';
 import Adapter from './api/adapter';
 import { Plugin } from './api/plugin';
 
@@ -27,16 +26,13 @@ export type CitrineEvent =
   ;
 
 export class Core extends EventEmitter<CitrineEvent>  {
-  constructor(private _adapter: Adapter) {
-    super();
-  }
-
-  public get adapter(): Adapter {
-    return this._adapter;
-  }
-
   public get pluginNames(): string[] {
     return Object.keys(this.plugins);
+  }
+
+  public async startAsync(adapter: Adapter): Promise<void> {
+    this.adapter = adapter;
+    await this.adapter.connectAsync();
   }
 
   public addPlugin(name: string, plugin: Plugin): void {
@@ -56,7 +52,7 @@ export class Core extends EventEmitter<CitrineEvent>  {
   public enablePlugin(name: string): void {
     const p = this.plugins.get(name);
     if (!p) throw new TypeError(`No such plugin named ${name}.`);
-    const fin = p(this);
+    const fin = p(this, this.adapter);
     if (typeof fin === 'function') {
       this.finalizers.set(name, fin);
     }
@@ -70,4 +66,5 @@ export class Core extends EventEmitter<CitrineEvent>  {
 
   private plugins = new Map<string, Plugin>();
   private finalizers = new Map<string, VoidFunction>();
+  private adapter: Adapter = null as unknown as Adapter;
 }
