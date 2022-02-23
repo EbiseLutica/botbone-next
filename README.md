@@ -1,6 +1,6 @@
-# Citrine.ts
+# BotBone Next
 
-TypeScript による `Xeltica/BotBone` および `Xeltica/Citrine` の再実装。
+TypeScript による `Xeltica/BotBone` の再実装。
 
 Node.js v17.5.0が必要。
 
@@ -19,7 +19,7 @@ Node.js v17.5.0が必要。
 
 ### アダプター
 
-アダプターは、Citrineとサービスをつなぐインターフェイスの役割を持ちます。サービスを操作するAPIを実装し、リプライなどのイベントが起こるたびにコアにイベントをemitします。
+アダプターは、BotBoneとサービスをつなぐインターフェイスの役割を持ちます。サービスを操作するAPIを実装し、リプライなどのイベントが起こるたびにコアにイベントをemitします。
 
 ### コマンド
 

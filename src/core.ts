@@ -1,5 +1,5 @@
 /**
- * Citrine Core System
+ * BotBone Core System
  */
 
 import Adapter, { PostInit } from './api/adapter.js';
