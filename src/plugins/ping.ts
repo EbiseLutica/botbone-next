@@ -1,8 +1,11 @@
-import { Plugin } from '../api/plugin';
+import { Plugin } from '../api/plugin.js';
 
 export const pingPlugin: Plugin = (core, adapter) => {
-  const handleReply = () => {
-    adapter.replyAsync
-  };
-  core.on('');
+  core.addEventListener('receiveRequest', e => {
+    if (e.value.body?.toLowerCase().includes('ping')) {
+      adapter.replyAsync(e.value, {
+        body: 'PONG!',
+      });
+    }
+  });
 };

@@ -1,24 +1,24 @@
-import { File } from './models/file';
-import { Nullable } from './models/nullable';
-import { Post } from './models/post';
-import { User } from './models/user';
-import { Visibility } from './models/visibility';
+import { File } from './models/file.js';
+import { Nullable } from './models/nullable.js';
+import { Post } from './models/post.js';
+import { User } from './models/user.js';
+import { Visibility } from './models/visibility.js';
 
 export default interface Adapter {
   get name(): string;
   connectAsync(): Promise<void>;
   disconnectAsync(): Promise<void>;
 
-  createPostAsync(payload: PostInit): Promise<Post>;
+  createPostAsync(payload: PostInit): Promise<Nullable<Post>>;
   deletePostAsync(post: Post | Post['id']): Promise<void>;
-  repostAsync(post: Post | Post['id'], payload?: PostInit): Promise<Post>;
+  repostAsync(post: Post | Post['id'], payload?: PostInit): Promise<Nullable<Post>>;
   undoRepostAsync(post: Post | Post['id']): Promise<void>;
   likeAsync(post: Post | Post['id']): Promise<void>;
   undoLikeAsync(post: Post | Post['id']): Promise<void>;
 
-  replyAsync(post: Post | Post['id'], payload: PostInit): Promise<Post>;
+  replyAsync(post: Post | Post['id'], payload: PostInit): Promise<Nullable<Post>>;
   reactAsync(post: Post | Post['id'], emoji: string): Promise<void>;
-  sendDirectAsync(user: User, init: PostInit): Promise<Post>;
+  sendDirectAsync(user: User, init: PostInit): Promise<Nullable<Post>>;
 
   followAsync(user: User | User['id']): Promise<void>;
   undoFollowAsync(user: User | User['id']): Promise<void>;

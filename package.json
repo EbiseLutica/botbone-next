@@ -5,6 +5,7 @@
   "repository": "https://github.com/Xeltica/Citrine.ts",
   "author": "Xeltica",
   "license": "MIT",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@jsdsl/bimap": "^0.1.1",

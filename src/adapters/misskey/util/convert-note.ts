@@ -1,9 +1,9 @@
 import { Note as MiNote } from 'misskey-js/built/entities';
 
 import { Post } from '../../../api/models/post'
-import { convertVisibilityFromMisskey } from './convert-visibility';
-import { convertFile } from './convert-file';
-import { convertUser } from './convert-user';
+import { convertVisibilityFromMisskey } from './convert-visibility.js';
+import { convertFile } from './convert-file.js';
+import { convertUser } from './convert-user.js';
 
 export const convertNote = (note: MiNote, myHost: string): Post => {
   return {

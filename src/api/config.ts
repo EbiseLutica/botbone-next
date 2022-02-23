@@ -1,5 +1,5 @@
 import { existsSync, promises as file } from 'fs';
-import { AnyRecord } from './models/any-record';
+import { AnyRecord } from './models/any-record.js';
 
 const getConfigPath = (name: string) => `./config/${name}.json`;
 
@@ -16,7 +16,7 @@ export const readConfigAsync = async <T = AnyRecord>(name: string, defaultConfig
 };
 
 export const writeConfigAsync = async <T extends Record<string, unknown>>(name: string, data: T): Promise<void> => {
-  file.writeFile(getConfigPath(name), JSON.stringify(data), {
+  await file.writeFile(getConfigPath(name), JSON.stringify(data, null, '  '), {
     encoding: 'utf-8',
     flag: 'w',
   });

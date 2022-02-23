@@ -1,6 +1,6 @@
 import { BiMap } from '@jsdsl/bimap';
 import { noteVisibilities } from 'misskey-js';
-import { Visibility } from '../../../api/models/visibility';
+import { Visibility } from '../../../api/models/visibility.js';
 
 const visibilitiesMap = new BiMap<Visibility, typeof noteVisibilities[number]>();
 

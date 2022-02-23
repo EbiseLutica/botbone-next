@@ -1,5 +1,5 @@
 import { DriveFile as MiFile } from 'misskey-js/built/entities';
-import { File } from '../../../api/models/file';
+import { File } from '../../../api/models/file.js';
 
 export const convertFile = (file: MiFile): File => {
   return {

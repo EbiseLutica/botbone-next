@@ -1,4 +1,4 @@
-import { Gender } from './gender';
+import { Gender } from './gender.js';
 
 export interface UserProfile {
   name?: string;

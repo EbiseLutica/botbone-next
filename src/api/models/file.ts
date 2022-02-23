@@ -1,4 +1,4 @@
-import { DataObject } from './data-object';
+import { DataObject } from './data-object.js';
 
 
 export interface File extends DataObject {

@@ -1,7 +1,7 @@
-import { DataObject } from './data-object';
-import { File } from './file';
-import { User } from './user';
-import { Visibility } from './visibility';
+import { DataObject } from './data-object.js';
+import { File } from './file.js';
+import { User } from './user.js';
+import { Visibility } from './visibility.js';
 
 export interface Post extends DataObject {
   id: string;

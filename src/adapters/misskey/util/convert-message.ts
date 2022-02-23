@@ -1,8 +1,8 @@
 import { MessagingMessage as MiMessage } from 'misskey-js/built/entities';
 
 import { Post } from '../../../api/models/post'
-import { convertFile } from './convert-file';
-import { convertUser } from './convert-user';
+import { convertFile } from './convert-file.js';
+import { convertUser } from './convert-user.js';
 
 export const convertMessage = (msg: MiMessage, myHost: string): Post => {
   return {

@@ -1,6 +1,6 @@
-import { DataObject } from './data-object';
-import { UserProfile } from './user-profile';
-import { Visibility } from './visibility';
+import { DataObject } from './data-object.js';
+import { UserProfile } from './user-profile.js';
+import { Visibility } from './visibility.js';
 
 export interface User extends DataObject {
   id: string;

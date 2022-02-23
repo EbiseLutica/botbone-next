@@ -31,7 +31,7 @@ module.exports = {
     'semi': 'off',
     'max-len': [
       'error', {
-        'code': 120,
+        'code': 180,
       }
     ],
   }

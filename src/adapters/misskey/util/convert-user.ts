@@ -1,5 +1,5 @@
 import { User as MiUser } from 'misskey-js/built/entities';
-import { User } from '../../../api/models/user';
+import { User } from '../../../api/models/user.js';
 
 export const convertUser = (u: MiUser, myHost: string): User => {
   const detailed = 'createdAt' in u ? u : undefined;
