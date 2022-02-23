@@ -38,7 +38,7 @@ interface EventRecord {
 
 export class Core {
   public get pluginNames(): string[] {
-    return Object.keys(this.plugins);
+    return Array.from(this.plugins.keys());
   }
 
   public async startAsync(adapter: Adapter): Promise<void> {
@@ -69,6 +69,7 @@ export class Core {
     const p = this.plugins.get(name);
     if (!p) throw new TypeError(`No such plugin named ${name}.`);
     this.currentPluginName = name;
+    console.log(`Enabling plugin "${name}"...`);
     const fin = p(this, this.adapter);
     if (typeof fin === 'function') {
       this.finalizers.set(name, fin);
@@ -78,6 +79,7 @@ export class Core {
 
   public disablePlugin(name: string): void {
     if (!this.plugins.has(name)) throw new TypeError(`No such plugin named ${name}.`);
+    console.log(`Disabling plugin "${name}"...`);
     const fin = this.finalizers.get(name);
     if (fin) fin();
   }
@@ -92,8 +94,11 @@ export class Core {
   }
 
   public dispatchEvent<T extends keyof CoreEventMap>(type: T, value: CoreEventMap[T]): boolean {
-    for (const {listener} of this.events[type]) {
+    console.log(`fired event ${type}`);
+    if (!this.events[type]) return true;
+    for (const {listener, pluginName} of this.events[type]) {
       const obj: CoreEvent<T> = { value };
+      console.log(`execute ${pluginName}`);
       if (listener(obj)) return false;
     }
     return true;

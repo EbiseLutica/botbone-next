@@ -1,8 +1,7 @@
 import { api, Stream } from 'misskey-js';
 import fetch from 'node-fetch';
-import websocket from 'websocket';
+import WebSocket from 'ws';
 import { MessagingMessage, Note as MiNote, User as MiUser } from 'misskey-js/built/entities';
-const {client: WebSocket} = websocket;
 
 import Adapter, { PostInit } from '../../api/adapter.js';
 import { Nullable } from '../../api/models/nullable.js';

@@ -12,13 +12,15 @@
     "@mizdra/strictly-typed-event-target": "^2.0.0",
     "@types/node": "^17.0.15",
     "@types/websocket": "^1.0.5",
+    "@types/ws": "^8.2.3",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
     "eslint": "^8.8.0",
     "misskey-js": "^0.0.14",
     "node-fetch": "^3.2.0",
     "typescript": "^4.5.5",
-    "websocket": "^1.0.34"
+    "websocket": "^1.0.34",
+    "ws": "^8.5.0"
   },
   "scripts": {
     "build": "tsc",
