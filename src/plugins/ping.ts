@@ -6,6 +6,7 @@ export const pingPlugin: Plugin = (core, adapter) => {
       adapter.replyAsync(e.value, {
         body: 'PONG!',
       });
+      return 'cancel';
     }
   });
 };

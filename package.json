@@ -1,8 +1,8 @@
 {
-  "name": "citrine-ts",
+  "name": "botbone",
   "version": "1.0.0-alpha.1",
   "main": "index.js",
-  "repository": "https://github.com/Xeltica/Citrine.ts",
+  "repository": "https://github.com/Xeltica/botbone-next",
   "author": "Xeltica",
   "license": "MIT",
   "type": "module",

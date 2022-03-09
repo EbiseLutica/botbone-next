@@ -1,6 +1,6 @@
 import { Note as MiNote } from 'misskey-js/built/entities';
 
-import { Post } from '../../../api/models/post'
+import { Post } from '../../../api/models/post';
 import { convertVisibilityFromMisskey } from './convert-visibility.js';
 import { convertFile } from './convert-file.js';
 import { convertUser } from './convert-user.js';
